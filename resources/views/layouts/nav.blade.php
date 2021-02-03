@@ -22,7 +22,10 @@
     <div class="collapse navbar-collapse" id="app-navbar-collapse">
       <!-- Left Side Of Navbar -->
       <ul class="nav navbar-nav">
-        &nbsp;
+        <li><a href="{{ route('article.create') }}">글 쓰기</a></li>
+        <li><a href="{{ route('article.edit') }}">글 수정</a></li>
+        <li><a href="{{ route('article.index') }}">글 목록</a></li>
+        <li><a href="{{ route('article.show') }}">글 보기</a></li>
       </ul>
 
       <!-- Right Side Of Navbar -->

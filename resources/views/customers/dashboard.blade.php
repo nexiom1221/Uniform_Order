@@ -7,9 +7,14 @@
         <div class="panel-heading">CUSTOMER Dashboard</div>
 
         <div class="panel-body">
-          You are logged in as a <strong>CUSTOMER</strong>!
+          You are logged in as a {{ Auth::user()->name }}
         </div>
       </div>
     </div>
   </div>
+
+  
+
 @endsection
+
+

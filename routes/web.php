@@ -131,3 +131,18 @@ Route::post(
     'products/images',
     'ImageController@store'
 )->name('products.images.store');
+
+//인덱스 리스트
+Route::get('/article/index', 'ArticleController@index')->name('article.index');
+//글쓰기 폼
+Route::get('/article/create', 'ArticleController@create')->name('article.create');
+//새로운글 저장
+Route::post('/article', 'ArticleController@store')->name('article.store');
+//해당글 보기 
+Route::get('/article/show', 'ArticleController@show')->name('article.show');
+//해당글 수정 폼
+Route::get('/article/edit', 'ArticleController@edit')->name('article.edit');
+//해당글 업데이트
+Route::put('/article/{id}', 'ArticleController@update')->name('article.update');
+//해당글 삭제
+Route::delete('/article/{id}/destroy', 'ArticleController@destroy')->name('article.destroy');
