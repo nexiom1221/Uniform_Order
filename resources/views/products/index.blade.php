@@ -14,7 +14,7 @@
 @endsection
 
 @section('content')
-  <h1>상품 목록</h1>
+  <h1>메인페이지(상품 리스트 보여주기)</h1>
 
   <form method="get" action="{{ route('products.index') }}" class="form-inline pull-right">
     <div class="form-group">

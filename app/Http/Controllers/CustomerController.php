@@ -13,8 +13,16 @@ class CustomerController extends Controller
     }
 
     public function dashboard()
-    {
-        return view('customers.dashboard');
+    {   
+        $customers = \App\Customer::all();
+
+       
+    
+        return view('customers.dashboard', [
+            'customers' => $customers
+        ]);
+    
+       // return view('customers.dashboard');
     }
 
     /**
@@ -24,7 +32,7 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        //
+         
     }
 
     /**
