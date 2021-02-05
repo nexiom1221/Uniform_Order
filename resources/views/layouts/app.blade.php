@@ -26,7 +26,7 @@
   <div id="app">
     @include('layouts.nav')
 
-    <div class="container" style="margin-bottom: 3em;">
+    <div class="container mx-auto" style="margin-bottom: 3em;">
       @yield('content')
     </div>
   </div>
