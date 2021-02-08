@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-<h1> 상품 목록() <h1>
+<h1> 내 주문이력 <h1>
 <ul>
 			@foreach($articles as $article)
 				<a href="/aricles/{{ $article->id }}">

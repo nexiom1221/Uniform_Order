@@ -134,7 +134,7 @@ Route::post(
 
 
 //글쓰기 폼
-Route::get('/article/create', 'ArticleController@create')->name('article.create');
+Route::get('/article', 'ArticleController@create')->name('article.create');
 //새로운글 저장
 Route::post('/article', 'ArticleController@store')->name('article.store');
 //인덱스 리스트
@@ -152,3 +152,5 @@ Route::delete('/article/{id}/destroy', 'ArticleController@destroy')->name('artic
 Route::get('/admin/index', 'AdminController@index')->name('admin.index');
 //관리자 수주관리 페이지 데이터 가져오기 테스트(유저 데이터) => 나중에 주문 데이터 가져오기로 변경
 Route::get('/admin/index', 'AdminController@show')->name('admin.index');
+
+Route::get('/layouts/nav', 'CustomerController@dashboard')->name('admin.nav');
