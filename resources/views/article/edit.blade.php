@@ -5,5 +5,5 @@
 @endsection
 
 @section('content')
-<h1> 글 수정() <h1>
+<h1> 상품 수정 <h1>
 @endsection

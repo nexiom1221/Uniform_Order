@@ -10,7 +10,7 @@
 <div class="px-64">
 		<h1 class="font-bold text-3xl">Create Task</h1>
 		<form action="/article" method="POST">
-			@csrf
+			
       
 			<label class="block" for="title">Title</label>
 			<input class="border border-gray-800 w-full @error('content') border border-red-700 @enderror" type="text" name="title" id="title" required value="{{ old('title') ? old('title') : '' }}"><br>
