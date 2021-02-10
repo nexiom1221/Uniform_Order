@@ -6,14 +6,26 @@
 
 @section('content')
 <h1> 내 주문이력 <h1>
-<ul>
+
+
+<div class="px-64">
+		<h1 class="font-bold text-3xl">List</h1>
+	<ul>
 			@foreach($articles as $article)
-				<a href="/aricles/{{ $article->id }}">
-					<li class="border my-3 p-3">Title: {{ $article->title }} <small class="float-right">Created at {{ $article->created_at }}</small></li>
+
+			@if(Auth::user()->email == $article->email)
+				<a href="/aricle/{{ $article->id }}">
+					<li class="border my-3 p-3">Title: {{ $article->title }} 
+					<small class="float-right">Created at {{ $article->created_at }}</small></li>
 				</a>
+			@endif
+
 			@endforeach
+
+  
 	</ul>
 
+</div>
 
   
 @endsection

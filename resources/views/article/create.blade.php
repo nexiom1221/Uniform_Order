@@ -15,11 +15,12 @@
 			<label class="block" for="title">Title</label>
 			<input class="border border-gray-800 w-full @error('content') border border-red-700 @enderror" type="text" name="title" id="title" required value="{{ old('title') ? old('title') : '' }}"><br>
 
-			
+			email
+			<input class="border border-gray-800 w-full @error('email') border border-red-700 @enderror" name="email" id="email" cols="10" rows="10" placeholder='{{ Auth::user()->email }}' required>회원 이메일 입력!(반드시)<br>
+			{{ Auth::user()->email }}<br>
+
 			<label class="block" for="content">Body</label>
 			<textarea class="border border-gray-800 w-full @error('content') border border-red-700 @enderror" name="content" id="content" cols="30" rows="10" required>{{ old('content') ? old('content') : '' }}</textarea><br>
-
-      
 			
 			<button class="bg-blue-600 text-white px-4 py-2 float-right">Submit</button>
 

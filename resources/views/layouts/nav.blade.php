@@ -16,13 +16,13 @@
             <a href="{{ route('article.create') }}" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">상품주문</a>
                 <a href="{{ route('article.index') }}" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">주문이력</a>
                 <a href="{{ route('article.edit') }}" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">상품수정</a>
-                <a href="{{ route('article.show') }}" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">상품목록</a>
+                <a href="{{ route('article.list') }}" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">상품목록</a>
     @else
     @if (Auth::guard('customers') == 'admin')
                 <a href="{{ route('article.create') }}" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">상품주문</a>
                 <a href="{{ route('article.index') }}" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">주문이력</a>
                 <a href="{{ route('article.edit') }}" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">상품수정</a>
-                <a href="{{ route('article.show') }}" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">상품목록</a>
+                <a href="{{ route('article.list') }}" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">상품목록</a>
                 <a href="{{ route('admin.index') }}" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">受注管理</a>
    @endif
    @endif
