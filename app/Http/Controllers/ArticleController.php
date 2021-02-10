@@ -27,9 +27,11 @@ class ArticleController extends Controller
         ]);
     }
 
-    public function show()
+    public function show(article $article)
     {
-        return view('article.show');
+        return view('article.show', [
+            'article' => $article
+        ]);
     }
 
     public function store(Request $request)
@@ -39,10 +41,28 @@ class ArticleController extends Controller
         
         $articles = article::create([
             'title'=>$request->input('title'),
+            'email' =>$request->input('email'),
             'content'=>$request->input('content')
+            
         ]);
 
-        return redirect('/article');
+        return redirect('/article/'.$articles->id);
     }
+
+    public function mylist()
+    {
+        $admins = \App\Customer::all();
+
+        return view('admin.index', [
+            'admins' => $admins
+        ]);
+
+    }
+
+    public function list()
+    {
+        return view('article.list');
+    }
+ 
     
 }

@@ -137,10 +137,12 @@ Route::post(
 Route::get('/article', 'ArticleController@create')->name('article.create');
 //새로운글 저장
 Route::post('/article', 'ArticleController@store')->name('article.store');
+// 유니폼 리스트 페이지
+Route::get('/article/list', 'ArticleController@list')->name('article.list');
 //인덱스 리스트
 Route::get('/article/index', 'ArticleController@index')->name('article.index');
-//해당글 보기 
-Route::get('/article/show', 'ArticleController@show')->name('article.show');
+//해당글 상세보기 
+Route::get('/article/{article}', 'ArticleController@show')->name('article.show');
 //해당글 수정 폼
 Route::get('/article/edit', 'ArticleController@edit')->name('article.edit');
 //해당글 업데이트
@@ -148,9 +150,14 @@ Route::put('/article/{id}', 'ArticleController@update')->name('article.update');
 //해당글 삭제
 Route::delete('/article/{id}/destroy', 'ArticleController@destroy')->name('article.destroy');
 
+
+
 //관리자 수주관리 페이지
 Route::get('/admin/index', 'AdminController@index')->name('admin.index');
 //관리자 수주관리 페이지 데이터 가져오기 테스트(유저 데이터) => 나중에 주문 데이터 가져오기로 변경
 Route::get('/admin/index', 'AdminController@show')->name('admin.index');
-
+//
 Route::get('/layouts/nav', 'CustomerController@dashboard')->name('admin.nav');
+
+
+
