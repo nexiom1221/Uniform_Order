@@ -13,4 +13,6 @@ class ForgotPasswordController extends Controller
     {
         $this->middleware('guest:customers,members');
     }
+
+
 }

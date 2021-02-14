@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Foundation\Validation\ValidatesRequests;
+use App\article;
+
 
 class ArticleController extends Controller
 {
@@ -11,19 +14,79 @@ class ArticleController extends Controller
         return view('article.create');
     }
     
-    public function edit()
-    {
-        return view('article.edit');
-    }
-
     public function index()
     {
-        return view('article.index');
+        $articles = article::latest()->get();
+
+
+        return view('article.index', [
+            'articles' => $articles
+        ]);
     }
 
-    public function show()
+    public function show(article $article)
     {
-        return view('article.show');
+        return view('article.show', [
+            'article' => $article
+        ]);
+    }
+
+    public function store()
+    {
+       $this->validate(request(),[
+            'title' => 'required',
+            'content' => 'required'
+        ]); 
+
+		
+		$values = request(['title', 'content']);
+
+		$values['user_id'] = auth()->id();
+		
+        
+        $article = article::create(request(['title', 'content']));
+
+        return redirect('/article/'.$article->id);
+    }
+
+    public function mylist()
+    {
+        $admins = \App\Customer::all();
+
+        return view('admin.index', [
+            'admins' => $admins
+        ]);
+
+    }
+
+    public function list()
+    {
+        return view('article.list');
+    }
+
+    public function edit(article $article)
+    {
+        return view('article.edit',[
+            'article' => $article
+        ]);
+    }
+
+    public function update(article $article)
+    {
+
+        $article->update([
+            'title' => request('title'),
+            'content' => request('content')
+        ]);
+
+        return redirect('/article/'.$article->id);
+    }
+
+    public function destroy(article $article)
+    {
+        $article->delete();
+
+        return redirect('/article');
     }
     
 }

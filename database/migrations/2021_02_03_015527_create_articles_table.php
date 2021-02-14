@@ -14,12 +14,14 @@ class CreateArticlesTable extends Migration
     public function up()
     {
         Schema::create('articles', function (Blueprint $table) {
-	$table->bigIncrements('id');
+	        $table->bigIncrements('id');
+            $table->unsignedBigInteger('user_id');
             $table->text('title');
             $table->longText('content');
             $table->timestamps();
             $table->boolean('is_published')->nullable()->default(false);
 
+            $table->foreign('user_id')->references('id')->on('customers');
         });
     }
 
